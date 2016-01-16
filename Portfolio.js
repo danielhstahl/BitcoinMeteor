@@ -1,7 +1,16 @@
 if(Meteor.isClient){
-    Template.historicalPortfolio.rendered = function() {    
+    Template.portfolio.rendered = function() {    
         histPortfolio();
-    }
+    },
+    Template.portfolio.helpers({
+        hasKeys:function(){
+            //console.log(Keys.find({}).count());
+            return Keys.find({}).count()>0;
+        },
+        getData:function(){
+            console.log(bitfinex.getBalanceHistory());
+        }
+    });
 }
 
 

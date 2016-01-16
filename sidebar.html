@@ -1,0 +1,21 @@
+<template name='sidebar'>
+    <div class="navmenu navmenu-default  navmenu-fixed-left offcanvas-xs">
+        <div class="navbar navbar-info transparent ">
+            
+        </div>
+        <ul class="nav nav-pills nav-stacked">
+            {{#each link}}
+                <li id='{{elid}}' role="presentation" class="withripple {{activeListClass this}}"><a  href="/{{elid}}" >{{name}}</a></li>
+            {{/each}}
+        </ul>
+    </div>
+    <!--<div class="container">-->
+        <div class="navbar navbar-info lightgrey">
+            <div class="navbar-toggle pull-left" data-toggle="offcanvas" data-target=".navmenu">
+                <span class="icon-bar black"></span>
+                <span class="icon-bar black"></span>
+                <span class="icon-bar black"></span>
+            </div>
+        </div> 
+    <!--</div>-->
+</template>
