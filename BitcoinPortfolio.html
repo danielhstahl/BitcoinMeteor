@@ -1,0 +1,28 @@
+<head>
+  <title>BitcoinPortfolio</title>
+</head>
+
+<body>
+  <h1>Welcome to Meteor!</h1>
+    {{> loginButtons}}
+    <!--{{> hello}}
+    {{> historicalPortfolio}}-->
+</body>
+
+<template name="hello">
+  <button>Click Me</button>
+  <p>You've pressed the button {{counter}} times.</p>
+</template>
+
+<template name='settings'>
+    <form id='add-api-keys'>
+        <div class='form-group'>
+            <label for='bitfinex-key' class='form-control'>Bitfinex API Key</label>
+            <input type='text' name='bitfinex-key' id='bitfinex-key'></input>
+        </div>
+        <div class='form-group'>
+            <label for='bitfinex-secret' class='form-control'>Bitfinex API Secret</label>
+            <input type='text' name='bitfinex-secret' id='bitfinex-secret'></input>
+        </div>    
+    </form>
+</template>
