@@ -1,22 +1,36 @@
 <template name='settings'>
     {{#if currentUser}} <!--this is a built in variable-->
-        <!--<div class='well'>-->
-        {{#if hasKeys}}
-            <p>Keys have been succesfully entered.  To replace these keys, submit additional keys below.</p>
-        {{/if}}
-        <form id='add-api-keys'>
-            <div class='form-group label-floating'>
-                <label for='bitfinex_key' class='control-label'>Bitfinex API Key</label>
-                <input type='password' class='form-control' name='bitfinex_key' id='bitfinex_key'>
-            </div>
-            <div class='form-group label-floating'>
-                <label for='bitfinex_secret' class='control-label'>Bitfinex API Secret</label>
-                <input type='password' name='bitfinex_secret' class='form-control' id='bitfinex_secret'>
-            </div> 
-            <button type='submit' class='btn-danger btn btn-raised'>Submit</button>
-        </form>
-        
-        <!--</div>-->
-        
+        <div class='well'>
+            {{#if hasKeys}}
+                <p>Keys have been succesfully entered.  To replace these keys, submit additional keys below.</p>
+            {{/if}}
+
+            <form id='add-api-keys'>
+                <div class='form-group label-floating'>
+                    <label for='bitfinex_key' class='control-label'>Bitfinex API Key</label>
+                    <input type='password' class='form-control' name='bitfinex_key' id='bitfinex_key'>
+                </div>
+                <div class='form-group label-floating'>
+                    <label for='bitfinex_secret' class='control-label'>Bitfinex API Secret</label>
+                    <input type='password' name='bitfinex_secret' class='form-control' id='bitfinex_secret'>
+                </div> 
+                <button type='submit' class='btn-danger btn btn-raised'>Submit</button>
+            </form>
+
+            <!--</div>-->
+            <p> {{#unless hasOneHundred}}PRoblem!{{/unless}}</p>
+            <form id='desired-allocation'>
+                {{#each currentAllocation}}
+                
+                    <div class='form-group label-floating'>
+                        <label for='{{name}}' class='control-label'>{{label}}</label>
+                        <input type='text' class='form-control allocation' name='{{name}}' id='{{name}}' value='{{value}}'>
+                        <span class='help-block'>Enter value in percents (eg '30' for 30%)</span>
+                    </div>
+                {{/each}}
+                <button type='submit' class='btn-danger btn btn-raised'>Submit</button>
+            </form>
+        </div>
     {{/if}}
+    
 </template>

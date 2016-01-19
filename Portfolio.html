@@ -1,7 +1,11 @@
 <template name='portfolio'>
-    {{#if hasKeys}}
-        {{getData}}
-    {{/if}}
-<div id='chart'></div>
+    <div class='well'>
+        {{#if hasKeys}}
+            <div id='chart'>{{createChart}}</div>
+        {{else}}
+            <p>No keys!  Add your keys under "settings".</p>
+        {{/if}}
+
+    </div>
     
 </template>
