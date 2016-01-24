@@ -1,5 +1,5 @@
 Keys=new Mongo.Collection("keys");
-Links=new Mongo.Collection("links");
+//Links=new Mongo.Collection("links");
 //WalletData=new Mongo.Collection("wallet");
 Wallets=new Mongo.Collection("wallets");
 Allocations=new Mongo.Collection("allocations");
@@ -7,7 +7,7 @@ Allocations=new Mongo.Collection("allocations");
 if (Meteor.isClient) {
     Meteor.subscribe('keys');
     Meteor.subscribe('wallets');
-    Meteor.subscribe('firstWallet');
+    //Meteor.subscribe('firstWallet');
     Meteor.subscribe('allocations');
     //Meteor.subscribe('walletData');
     Template['replace_atNavButton'].replaces('atNavButton');
@@ -17,10 +17,10 @@ if (Meteor.isServer) {
     /*WalletData.rawCollection().ensureIndex({owner:1, timestamp:1, balance:1, currency:1}, {unique:true}, function(err){
         console.log(err);
     });*/
-    Links.remove({});//probably mroe efficient to simply check if links exist...
+    /*Links.remove({});//probably mroe efficient to simply check if links exist...
     Links.insert({elid:'portfolio', name:'Portfolio', select:true});
     Links.insert({elid:'market', name:'Market', select:false});
-    Links.insert({elid:'settings', name:'Settings', select:false});
+    Links.insert({elid:'settings', name:'Settings', select:false});*/
     var currencies="";
     Meteor.startup(function () {
     // code to run on server at startup
@@ -59,9 +59,9 @@ if (Meteor.isServer) {
             usd:'LTCUSD'
         }
     }
-    Meteor.publish("firstWallet", function(){
+   /* Meteor.publish("firstWallet", function(){
         return Wallets.find({owner:this.userId}, {limit:1});
-    });
+    });*/
     Meteor.publish("allocations", function(){
         return Allocations.find({owner:this.userId}, {sort: {createdAt: -1}, limit:1});
     });

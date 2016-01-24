@@ -1,9 +1,19 @@
 if(Meteor.isClient){
-    Meteor.subscribe("links");
+    //Meteor.subscribe("links");
+    var link=[
+        {elid:'portfolio', name:'Portfolio', select:true},//);
+        {elid:'market', name:'Market', select:false},
+        {elid:'settings', name:'Settings', select:false}
+    ];
     Template.sidebar.helpers({
-        link: function () {
+        /*link: function () {
             return Links.find({});
-        },
+        },*/
+        link:[
+            {elid:'portfolio', name:'Portfolio', select:true},//);
+            {elid:'market', name:'Market', select:false},
+            {elid:'settings', name:'Settings', select:false}
+        ],
         activeListClass(link) {
             //console.log(link);
             //console.log(ActiveRoute.name('links.list'));
